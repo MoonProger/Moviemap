@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  z-index: 5;
+  overflow-y: auto;
+  font-family: "Roboto", sans-serif;
+}
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1800px;
+  gap: 50px;
+  z-index: 1;
+  margin: 0 auto;
+}
+.posterContainer {
+  width: 25%;
+  max-width: 500px;
+  height: auto;
+}
+.poster {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: slide-in-left 0.6s ease-out forwards;
+}
+.poster:hover {
+  transform: scale(1.05);
+}
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.detailsCard {
+  width: 75%;
+  max-width: 1200px;
+  background-color: var(--violet-window);
+  border-radius: 20px;
+  padding: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  opacity: 0;
+  transform: scale(0.95) translateY(-10px);
+  animation: detailsCard-pop 0.3s ease-out forwards;
+}
+@keyframes detailsCard-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.titleAndBackButtonContainer {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+.title {
+  font-size: 42px;
+  font-weight: 600;
+  margin: 10px 0;
+  color: white;
+}
+.backButton {
+  background: none;
+  cursor: pointer;
+}
+.backButtonIcon {
+  position: relative;
+  width: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+}
+.backButtonIcon:hover {
+  transform: scale(1.2);
+}
+.starRating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 50px;
+}
+.starFull,
+.starHalf,
+.starEmpty {
+  margin-right: 5px;
+}
+.starFull {
+  color: var(--rating);
+}
+.starHalf {
+  background: linear-gradient(90deg, var(--rating) 50%, transparent 40%);
+  -webkit-text-stroke: 1px var(--rating);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--rating);
+}
+.starEmpty {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--rating);
+}
+.genreContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.genreIcon {
+  font-size: 30px;
+  margin-right: 20px;
+  color: var(--rating);
+  width: 50px;
+}
+.genreLabel {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--light-pink);
+}
+.overview {
+  margin-top: 20px;
+  margin-bottom: 60px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #e0e0e0;
+  text-align: justify;
+}
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.year {
+  font-size: 20px;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+.yearLabel {
+  font-weight: 600;
+}
+.similarButton {
+  background-color: transparent;
+  border: 2px solid var(--light-pink);
+  color: var(--light-pink);
+  font-size: 20px;
+  font-weight: 600;
+  padding: 20px 40px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.similarButton:hover {
+  background-color: rgba(239, 207, 255, 0.1);
+  transform: scale(1.05);
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 100%;
+  font-size: 24px;
+  color: white;
+}
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+.loadingContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--light-pink);
+}
+.loadingContent h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 10px solid rgba(239, 207, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--light-pink);
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 20px;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.emptyPoster {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  background-color: var(--violet-window);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-pink);
+  font-size: 18px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 100%;
+  font-size: 24px;
+  color: #ff6b6b;
+}
+.cancelButton {
+  background-color: transparent;
+  border: 2px solid var(--light-pink);
+  color: var(--light-pink);
+  padding: 20px 30px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+}
+.cancelButton:hover {
+  background-color: rgba(239, 207, 255, 0.15);
+  transform: scale(1.05);
+}
+.cancelButton:active {
+  transform: scale(0.98);
+}
