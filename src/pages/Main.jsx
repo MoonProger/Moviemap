@@ -489,7 +489,13 @@ export default function Main() {
             return;
           }
           if (!response.ok) {
+            setIsLoading(false); 
+            setNoResults(true);
+            setNoResultsMessage(
+              `По запросу "${searchQuery}" ничего не найдено.`
+            );
             throw new Error("Не удалось выполнить поиск фильмов");
+            return;
           }
           const data = await response.json();
           if (cancelLoad) {
